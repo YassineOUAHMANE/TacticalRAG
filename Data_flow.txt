@@ -1,0 +1,7 @@
+User → React Frontend → FastAPI Endpoint → RAG Pipeline
+                                  ↓
+                            Retriever (Vector DB)
+                                  ↓
+                            Generator (LLM)
+                                  ↓
+                       Answer → FastAPI → React
