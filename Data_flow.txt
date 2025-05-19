@@ -1,7 +1,29 @@
-User → React Frontend → FastAPI Endpoint → RAG Pipeline
-                                  ↓
-                            Retriever (Vector DB)
-                                  ↓
-                            Generator (LLM)
-                                  ↓
-                       Answer → FastAPI → React
+┌────────────────────┐
+│    React Frontend  │  ← User Interface
+└─────────┬──────────┘
+          │ REST API Calls
+          ▼
+┌────────────────────┐
+│   FastAPI Backend  │  ← Main entry point, API layer
+├────────────────────┤
+│ /ask → RAG pipeline│
+│ /upload → Parser+DB│
+│ /stats → DB/API    │
+└──────┬─────┬───────┘
+       │     │
+       ▼     ▼
+┌────────┐  ┌──────────────────────┐
+│RAG Core│  │  File Preprocessor   │
+│        │  │ (PDF, CSV, Text...)  │
+└────────┘  └──────────────────────┘
+   │
+   ▼
+┌────────────────────────────┐
+│  Retriever + Vector Store  │  ← FAISS / Chroma / Pinecone
+└────────────┬───────────────┘
+             │
+             ▼
+     ┌──────────────────┐
+     │ LLM (OpenAI, etc)│  ← Generates the final answer
+     └──────────────────┘
+
