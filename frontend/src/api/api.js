@@ -6,7 +6,7 @@ export const askQuestion = async (question) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ question }),
   });
-  console.log(res);
+  //console.log(res);
   return res.json();
 };
 
