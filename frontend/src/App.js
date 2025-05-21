@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 
+// Import de la fonction API
+import { askQuestion } from './api/api.js';
+
 function App() {
   const [question, setQuestion] = useState('');
   const [messages, setMessages] = useState([]);
@@ -13,15 +16,8 @@ function App() {
     setQuestion('');
 
     try {
-      const res = await fetch('http://localhost:8000/ask', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ question }),
-      });
-
-      const data = await res.json();
+      // Utilisation de la fonction d'API centralisée
+      const data = await askQuestion(question);
       const botMessage = { sender: 'bot', text: data.answer };
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {

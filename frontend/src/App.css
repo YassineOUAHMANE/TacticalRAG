@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  background-image: url('../public/football_background.JPG');
+  background-image: url('../public/football_background.jpg');
   background-size: cover;          /* adapte à l'écran */
   background-repeat: no-repeat;    /* empêche la répétition */
   /*height: 100vh;                   /* assure le plein écran */

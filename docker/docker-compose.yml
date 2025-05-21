@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    ports:
+      - "8000:8000"
+  frontend:
+    build:
+      context:
+        ::contentReference[oaicite:66]{index=66}
+ 
