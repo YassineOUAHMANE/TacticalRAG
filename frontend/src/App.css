@@ -9,10 +9,10 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  background-image: url('../public/football_background.webp');
+  background-image: url('../public/football_background.JPG');
   background-size: cover;          /* adapte à l'écran */
   background-repeat: no-repeat;    /* empêche la répétition */
-  height: 100vh;                   /* assure le plein écran */
+  /*height: 100vh;                   /* assure le plein écran */
   }
 
 .header {
@@ -49,9 +49,9 @@ body {
   margin-bottom: 5px;
   flex-direction: column;
   gap: 10px;
-  background: rgba(0, 0, 0, 0.3); /* fond semi-transparent */
-  backdrop-filter: blur(10px);          /* flou de l'arrière-plan */
-  -webkit-backdrop-filter: blur(10px);  /* support pour Safari */
+  background: rgb(255, 255, 255, 0.1); /* fond semi-transparent */
+  backdrop-filter: blur(7px);          /* flou de l'arrière-plan */
+  -webkit-backdrop-filter: blur(7px);  /* support pour Safari */
   padding: 20px;
   border-radius: 10px;
   
@@ -68,7 +68,7 @@ body {
 
 .message.user {
   align-self: flex-end;
-  background-color: #4EA8DE;
+  background-color: #007AFF;
   color: #ffffff;
 }
 
@@ -84,11 +84,6 @@ body {
   margin-left: 25%;
   margin-right: 25%;
   margin-bottom: 30px;
-  background: rgba(0, 0, 0, 0.3); /* fond semi-transparent */
-  backdrop-filter: blur(10px);          /* flou de l'arrière-plan */
-  -webkit-backdrop-filter: blur(10px);  /* support pour Safari */
-  padding: 20px;
-  border-radius: 10px;
 }
 
 input {
@@ -96,7 +91,7 @@ input {
   padding: 10px 15px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 10px;
   outline: none;
 }
 
@@ -107,9 +102,10 @@ button {
   background-color: #007AFF;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
 }
 
 button:hover {
