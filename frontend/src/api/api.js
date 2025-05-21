@@ -1,14 +1,25 @@
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'http://localhost:8000'; // ✅ not 3000
 
 export const askQuestion = async (question) => {
-  const res = await fetch(`${API_BASE}/ask`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ question }),
-  });
-  //console.log(res);
-  return res.json();
+  try {
+    const res = await fetch(`${API_BASE}/ask`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`HTTP ${res.status}: ${errText}`);
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error("❌ Failed to reach /ask:", err);
+    throw err;
+  }
 };
+
 
 export const uploadFile = async (file) => {
   const formData = new FormData();

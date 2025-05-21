@@ -9,23 +9,25 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   const handleSend = async () => {
-    if (!question.trim()) return;
+  if (!question.trim()) return;
 
-    const userMessage = { sender: 'user', text: question };
-    setMessages((prev) => [...prev, userMessage]);
-    setQuestion('');
+  const userMessage = { sender: 'user', text: question };
+  setMessages((prev) => [...prev, userMessage]);
+  setQuestion('');
 
-    try {
-      // Utilisation de la fonction d'API centralisée
-      const data = await askQuestion(question);
-      const botMessage = { sender: 'bot', text: data.answer };
-      setMessages((prev) => [...prev, botMessage]);
-    } catch (err) {
-      console.error(err);
-      const errorMessage = { sender: 'bot', text: "Erreur de connexion avec le backend." };
-      setMessages((prev) => [...prev, errorMessage]);
-    }
-  };
+  try {
+    const data = await askQuestion(question);
+    console.log("Réponse backend :", data);  // 👈 à garder
+    const botMessage = { sender: 'bot', text: data };
+    console.log("Message bot :", botMessage); // 👈 vérifier ça
+    setMessages((prev) => [...prev, botMessage]);
+  } catch (err) {
+    console.error(err);
+    const errorMessage = { sender: 'bot', text: "Erreur de connexion." };
+    setMessages((prev) => [...prev, errorMessage]);
+  }
+};
+
 
   return (
     <div className="app-container">
