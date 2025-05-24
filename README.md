@@ -4,7 +4,7 @@
 
 Whether you're a **coach**, **analyst**, **journalist**, or a **passionate fan**, TacticalRAG gives you insights grounded in actual documents—fast and intelligently.
 
-![TacticalRAG App](frontend/public/football_backround.jpg)
+![TacticalRAG App](frontend/public/football_background.jpg)
 
 ---
 
